@@ -9,7 +9,8 @@ Le problème du voyageur de commerce (_TSP – Traveling-Sales Problem_) recherc
 
 Voici un exemple de données avec 40 points, le point 0 étant le point initial duquel partir :
 
-![GrapheInstance40_1](https://user-images.githubusercontent.com/111661333/213656880-c92e76b1-a132-4d38-8d06-cee2793be67b.png)
+![GraphInstance40_1](https://user-images.githubusercontent.com/111661333/213761271-510f8bad-5334-4c74-9003-e50943aeac0c.png)
+
 
 Les points peuvent représenter des clients qu'un camion partant d'un dépôt doit livrer, avant de revenir au dépôt.
 
@@ -37,7 +38,7 @@ Puis nous avons transformé l'algorithme pour le généraliser en _VRP_ (capacit
 
 Nous avons d'abord construit une modélisation mathématique linéaire du problème :
 
-![TSPTW-Modélisation](https://user-images.githubusercontent.com/111661333/213663477-ea318cd1-d8f9-48d6-a6a6-e9dabb114c6a.png)
+![TSPTWModélisation2](https://user-images.githubusercontent.com/111661333/213762368-d75b08cf-644d-40fe-9f88-608ca6271108.png)
 
 Nous avons ensuite codé cette modélisation en python en utilisant le solveur _pyscipopt_. Le code se trouve dans le fichier "TSPTW_Solveur.py".
 
@@ -46,7 +47,7 @@ Ce solveur trouve rapidement une solution pour des problèmes à 15 clients ou m
 Il est donc nécessaire, pour des problèmes complexes, d'avoir recours à des méthodes approchées. Ici nous avons reproduit et adapté une métaheuristique répandue : l'algorithme génétique.
 
 
-## - Méthode approchée
+## Méthode approchée
 
 Le code se trouve dans le fichier "TSPTW_GA.py".
 
@@ -78,9 +79,9 @@ Orange : Valeur moyenne des solutions de la population, par génération
 
 Il est possible de modifier ces derniers algorithmes pour les transformer en problèmes de tournées de véhicules.
 
-Pour la partie méthode exacte (solveur), il faudrait ajouter quelques contraintes de capacité et ajouter une dimension 
+Pour la partie méthode exacte (solveur), il faudrait ajouter quelques contraintes de capacité ou encore ajouter une dimension à la variable de décision x. Il n'était pas pertinent pour nous de coder à nouveau une méthode exacte.
 
-Pour cela, un algorithme similaire au précédent est utilisé, avec quelques changements : le découpage en tournée et le calcul de la fonction-objectif s'aide de l'algorithme _SPLIT_.
+Nous avons codé une nouvelle méthode approchée. Un algorithme similaire au précédent est utilisé, avec quelques changements : notamment le découpage en tournée et le calcul de la fonction-objectif qui s'aident de l'algorithme _SPLIT_.
 
 Le code se trouve dans le fichier "VRPTW_GA.py".
 
