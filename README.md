@@ -1,5 +1,5 @@
 # Présentation
-Ce projet a été réalisé dans le cadre d'un cours, en binôme, lors de ma dernière année à l'Université de Technologie de Troyes.
+Ce projet a été réalisé en binôme dans le cadre d'un cours, lors de ma dernière année à l'Université de Technologie de Troyes.
 
 Il traite une problématique de logistique urbaine, à l'aide d'une méthode exacte (mais limitée) et d'une méthode approchée (fournissant de bons résultats). Il a été mené avec le langage python, en utilisant également le logiciel Microsoft Excel.
 
