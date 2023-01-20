@@ -1,7 +1,7 @@
 # Présentation
 Ce projet a été réalisé dans le cadre d'un cours, en binôme, lors de ma dernière année à l'Université de Technologie de Troyes.
 
-Il traite une problématique de logistique urbaine, à l'aide d'une méthode exacte (mais limitée) et d'une méthode approchée (fournissant de bons résultats). Ce projet a été mené avec le langage python, en utilisant également le logiciel Microsoft Excel.
+Il traite une problématique de logistique urbaine, à l'aide d'une méthode exacte (mais limitée) et d'une méthode approchée (fournissant de bons résultats). Il a été mené avec le langage python, en utilisant également le logiciel Microsoft Excel.
 
 # Problématique
 
@@ -34,7 +34,7 @@ Puis nous avons transformé l'algorithme pour le généraliser en _VRP_ (capacit
 
 # Résolution - Cas particulier TSP
 
-## - Méthode exacte
+## Méthode exacte
 
 Nous avons d'abord construit une modélisation mathématique linéaire du problème :
 
@@ -42,18 +42,22 @@ Nous avons d'abord construit une modélisation mathématique linéaire du probl�
 
 Nous avons ensuite codé cette modélisation en python en utilisant le solveur _pyscipopt_. Le code se trouve dans le fichier "TSPTW_Solveur.py".
 
-Ce solveur trouve rapidement une solution pour des problèmes à 15 clients ou moins. Au-delà, la résolution nécéssite davantage de temps. Avec une limite de temps de quelques minutes, la meilleure solution du solveur est relativement mauvaise.
+Ce solveur trouve rapidement la solution optimale pour des problèmes à 15 clients ou moins. Au-delà, la résolution nécéssite davantage de temps. Avec une limite de temps de quelques minutes, la meilleure solution du solveur est relativement mauvaise.
 
 Il est donc nécessaire, pour des problèmes complexes, d'avoir recours à des méthodes approchées. Ici nous avons reproduit et adapté une métaheuristique répandue : l'algorithme génétique.
 
 
 ## Méthode approchée
 
-Le code se trouve dans le fichier "TSPTW_GA.py".
+L'algorithme génétique est inspiré des sciences biologiques et de l'évolution. Une population d'individus (= des routes ici) de taille fixe évolue sur un certain nombre de générations. Plus un individu a de "bons gênes" (= plus le coût de la route est faible), plus il a de chances de survivre et de se reproduire, c'est la sélection naturelle. De nouveaux individus sont créés par croisement (cross-over) entre des couples individus de la population. Enfin, un processus de mutation des gênes permet de diversifier la population et de découvrir de nouvelles zones de recherche. À la fin de l'algorithme, on s'intéresse au meilleur individu qui a existé dans la population. 
+
+Différentes variantes et valeurs de paramètres de l'algorithme génétique sont possibles.
+
+Notre code se trouve dans le fichier "TSPTW_GA.py".
 
 ## Résultats
 
-Nous avons testé notre algorithme sur des instances de 3 dimensions : 20 clients, 40 clients et 100 clients. Avec 3 instances par dimension, cela faisait 9 instances en tout.
+Nous avons testé notre algorithme sur des instances de 3 dimensions : 20 sommets, 40 sommets et 100 sommets. Avec 3 instances par dimension, cela faisait 9 instances en tout.
 
 Notre algorithme génétique comporte 4 paramètres (taille de population, nombre de générations, probabilité de mutation, part de la population initiale provenant d'une heuristique). Nous avons réalisé un nombre important d'exécutions avec différentes configurations de paramètres. À l'aide des résultats moyens, nous avons choisi le meilleur paramétrage.
 
