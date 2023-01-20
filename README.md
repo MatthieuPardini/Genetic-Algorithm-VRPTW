@@ -8,10 +8,9 @@ Il traite une problématique de logistique urbaine, à l'aide d'une méthode exa
 Le problème du voyageur de commerce (TSP – Traveling-Sales Problem) recherche un itinéraire de voyage optimal, partant d'un point initial, passant par un ensemble de points une et une seule fois et revenant au point initial.
 
 Voici un exemple de données avec 40 points, le point 0 étant le point initial duquel partir :
-
-Dans notre cas les points sont des clients qu'un camion partant d'un dépôt doit livrer
+Les points peuvent représenter des clients qu'un camion partant d'un dépôt doit livrer
 La fonction-objectif, à minimiser, peut être : la distance, le coût de transport...
-Ici nous avons étudié un cas particulier : celui où les clients ont une fenêtre de temps
+Ici nous avons étudié un cas particulier : celui où les clients ont une fenêtre de temps 
 
 
 La fonction-objectif définissant notre problème est la somme des coûts des trajets que réalise la tournée
